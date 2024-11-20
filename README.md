@@ -4,6 +4,8 @@
 
 作为一个程序员，经常会被要求承担一些非开发工作，这些工作不做不行，做了又感觉比较枯燥重复，好像在浪费生命，既然代码助手已经很常见了，来一个非代码的助手不过分吧。
 
+发起支持：书生大模型实战营，[GitHub 仓库](https://github.com/InternLM/Tutorial)。
+
 ## 功能架构
 
 ![非典型程序员架构图](https://github.com/user-attachments/assets/5018356e-a259-46e3-ae26-14ec0be61b67)
@@ -27,5 +29,3 @@
   
   丰富一些场景，必须的辅助功能升级。
 - 后续规划
-
-发起支持 书生大模型实战营， GitHub 仓库（https://github.com/InternLM/Tutorial）。
