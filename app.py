@@ -1,52 +1,39 @@
 import streamlit as st
-from pages.assistant import chat, history
-from pages.project import manage, one_page
-from pages.preferences import settings, model
+from views.assistant import chat, history
+from views.project import manage, one_page
+from views.preferences import settings, model
 
-# 设置页面配置
-st.set_page_config(
-    page_title="非典型程序员助手",
-    layout="wide"
-)
 
-# 定义导航结构
-NAVIGATION = {
-    "助手": {
-        "助手入口": chat.show,
-        "使用记录": history.show
-    },
-    "项目": {
-        "项目管理": manage.show,
-        "项目一页纸": one_page.show
-    },
-    "偏好": {
-        "偏好设置": settings.show,
-        "模型设置": model.show
-    }
-}
 
 def main():
+    # 设置页面配置
+    st.set_page_config(
+        page_title="非典型程序员助手",
+        layout="wide"
+    )
+
     # 创建侧边栏导航
     with st.sidebar:
-        st.title("功能导航")
+        # st.sidebar.title("非典型程序员助手")  # 这里是系统名称
         
-        # 当前选中的页面
-        if "current_page" not in st.session_state:
-            st.session_state.current_page = "助手入口"
-            
-        # 显示导航菜单
-        for category, pages in NAVIGATION.items():
-            st.markdown(f"### {category}")
-            for page_name in pages.keys():
-                if st.button(page_name, key=page_name, use_container_width=True):
-                    st.session_state.current_page = page_name
-                    st.rerun()
-    
-    # 显示选中的页面内容
-    for category, pages in NAVIGATION.items():
-        if st.session_state.current_page in pages:
-            pages[st.session_state.current_page]()
-            break
+        pg = st.navigation(
+            {
+                "助手": [chat_page, history_page],
+                "项目": [manage_page, one_page_page],
+                "偏好": [settings_page, model_page],
+            }
+        )
+
+    pg.run()
+
+chat_page = st.Page("views/assistant/chat.py", title="助手入口", icon=":material/dashboard:", default=True)
+history_page = st.Page("views/assistant/history.py", title="使用记录", icon=":material/dashboard:")
+
+manage_page = st.Page("views/project/manage.py", title="项目管理", icon=":material/dashboard:")
+one_page_page = st.Page("views/project/one_page.py", title="项目一页纸", icon=":material/dashboard:")
+
+settings_page = st.Page("views/preferences/settings.py", title="偏好设置", icon=":material/dashboard:")
+model_page = st.Page("views/preferences/model.py", title="模型设置", icon=":material/dashboard:")
 
 if __name__ == "__main__":
     main() 
