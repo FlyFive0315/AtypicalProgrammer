@@ -458,18 +458,31 @@ _create_option(
     "client.showErrorDetails",
     description="""
         Controls whether uncaught app exceptions and deprecation warnings
-        are displayed in the browser. By default, this is set to True and
-        Streamlit displays app exceptions and associated tracebacks, and
-        deprecation warnings, in the browser.
+        are displayed in the browser. This can be one of the following:
 
-        If set to False, deprecation warnings and full exception messages
-        will print to the console only. Exceptions will still display in the
-        browser with a generic error message. For now, the exception type and
-        traceback show in the browser also, but they will be removed in the
-        future.
+        - "full"       : In the browser, Streamlit displays app deprecation
+                         warnings and exceptions, including exception types,
+                         exception messages, and associated tracebacks.
+        - "stacktrace" : In the browser, Streamlit displays exceptions,
+                         including exception types, generic exception messages,
+                         and associated tracebacks. Deprecation warnings and
+                         full exception messages will only print to the
+                         console.
+        - "type"       : In the browser, Streamlit displays exception types and
+                         generic exception messages. Deprecation warnings, full
+                         exception messages, and associated tracebacks only
+                         print to the console.
+        - "none"       : In the browser, Streamlit displays generic exception
+                         messages. Deprecation warnings, full exception
+                         messages, associated tracebacks, and exception types
+                         will only print to the console.
+        - True         : This is deprecated. Streamlit displays "full"
+                         error details.
+        - False        : This is deprecated. Streamlit displays "stacktrace"
+                         error details.
     """,
-    default_val=True,
-    type_=bool,
+    default_val="full",
+    type_=str,
     scriptable=True,
 )
 
@@ -480,12 +493,12 @@ _create_option(
         and settings dialog (top right of the app).
 
         Allowed values:
-        * "auto"      : Show the developer options if the app is accessed through
+        - "auto"      : Show the developer options if the app is accessed through
                         localhost or through Streamlit Community Cloud as a developer.
                         Hide them otherwise.
-        * "developer" : Show the developer options.
-        * "viewer"    : Hide the developer options.
-        * "minimal"   : Show only options set externally (e.g. through
+        - "developer" : Show the developer options.
+        - "viewer"    : Hide the developer options.
+        - "minimal"   : Show only options set externally (e.g. through
                         Streamlit Community Cloud) or through st.set_page_config.
                         If there are no options left, hide the menu.
     """,
@@ -567,9 +580,9 @@ _create_option(
         https://docs.streamlit.io/develop/concepts/design/custom-classes#enums
 
         Allowed values:
-        * "off": Disables Enum coercion.
-        * "nameOnly": Enum classes can be coerced if their member names match.
-        * "nameAndValue": Enum classes can be coerced if their member names AND
+        - "off": Disables Enum coercion.
+        - "nameOnly": Enum classes can be coerced if their member names match.
+        - "nameAndValue": Enum classes can be coerced if their member names AND
           member values match.
     """,
     default_val="nameOnly",
@@ -599,11 +612,11 @@ _create_option(
         completely.
 
         Allowed values:
-        * "auto"     : Streamlit will attempt to use the watchdog module, and
+        - "auto"     : Streamlit will attempt to use the watchdog module, and
                        falls back to polling if watchdog is not available.
-        * "watchdog" : Force Streamlit to use the watchdog module.
-        * "poll"     : Force Streamlit to always use polling.
-        * "none"     : Streamlit will not watch files.
+        - "watchdog" : Force Streamlit to use the watchdog module.
+        - "poll"     : Force Streamlit to always use polling.
+        - "none"     : Streamlit will not watch files.
     """,
     default_val="auto",
     type_=str,
@@ -711,12 +724,11 @@ _create_option(
 _create_option(
     "server.enableCORS",
     description="""
-        Enables support for Cross-Origin Resource Sharing (CORS) protection, for
-        added security.
+        Enables support for Cross-Origin Resource Sharing (CORS) protection,
+        for added security.
 
-        Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
-        on and `server.enableCORS` is off at the same time, we will prioritize
-        `server.enableXsrfProtection`.
+        If XSRF protection is enabled and CORS protection is disabled at the
+        same time, Streamlit will enable them both instead.
     """,
     default_val=True,
     type_=bool,
@@ -729,9 +741,8 @@ _create_option(
         Enables support for Cross-Site Request Forgery (XSRF) protection, for
         added security.
 
-        Due to conflicts between CORS and XSRF, if `server.enableXsrfProtection` is
-        on and `server.enableCORS` is off at the same time, we will prioritize
-        `server.enableXsrfProtection`.
+        If XSRF protection is enabled and CORS protection is disabled at the
+        same time, Streamlit will enable them both instead.
     """,
     default_val=True,
     type_=bool,
