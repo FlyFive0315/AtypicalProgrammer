@@ -22,15 +22,15 @@ if "model_settings" not in st.session_state:
     }
 
 # 助手相关页面
-product_demand_page = st.Page("pages/assistant/product_demand.py", title="产品说明书", icon="💬", default=True)
-table_design_page = st.Page("pages/assistant/table_design.py", title="表设计⏳", icon="🗄️")
-test_case_page = st.Page("pages/assistant/test_case.py", title="测试用例⏳", icon="🧪")
-user_manual_page = st.Page("pages/assistant/user_manual.py", title="用户手册⏳", icon="📖")
+product_demand_page = st.Page("views/assistant/product_demand.py", title="产品说明书", icon="💬", default=True)
+table_design_page = st.Page("views/assistant/table_design.py", title="表设计⏳", icon="🗄️")
+test_case_page = st.Page("views/assistant/test_case.py", title="测试用例⏳", icon="🧪")
+user_manual_page = st.Page("views/assistant/user_manual.py", title="用户手册⏳", icon="📖")
 
 # 偏好设置页面
-manage_page = st.Page("pages/preferences/manage.py", title="项目管理⏳", icon="📁")
-settings_page = st.Page("pages/preferences/settings.py", title="偏好设置", icon="⚙️")
-model_page = st.Page("pages/preferences/model.py", title="模型设置", icon="🤖")
+manage_page = st.Page("views/preferences/manage.py", title="项目管理⏳", icon="📁")
+settings_page = st.Page("views/preferences/settings.py", title="偏好设置", icon="⚙️")
+model_page = st.Page("views/preferences/model.py", title="模型设置", icon="🤖")
 
 # 创建导航
 pg = st.navigation(
