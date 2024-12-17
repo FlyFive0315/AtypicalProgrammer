@@ -20,14 +20,17 @@
 
 ## 功能架构
 
-![非典型程序员架构图](https://github.com/user-attachments/assets/5018356e-a259-46e3-ae26-14ec0be61b67)
+![功能架构图](https://github.com/user-attachments/assets/5018356e-a259-46e3-ae26-14ec0be61b67)
 
 ## 技术架构
 
-![非典型程序员架构图 - 副本](https://github.com/user-attachments/assets/c744930e-2119-480d-916e-4aee6394c57d)
+![技术架构图](https://github.com/user-attachments/assets/c744930e-2119-480d-916e-4aee6394c57d)
 
 ## 截图
 
+- 产品说明书
+
+![产品说明书](https://github.com/user-attachments/assets/5018356e-a259-46e3-ae26-14ec0be61b67)
 
 ## 开发计划及进度
 
