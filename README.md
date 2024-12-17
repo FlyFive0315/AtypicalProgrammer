@@ -30,7 +30,15 @@
 
 - 产品说明书
 
-![产品说明书](https://github.com/user-attachments/assets/5018356e-a259-46e3-ae26-14ec0be61b67)
+![Snipaste_2024-12-17_21-54-55](https://github.com/user-attachments/assets/4862501e-bf14-4975-89eb-4efa8a34612e)
+
+- 偏好设置
+
+![Snipaste_2024-12-17_21-55-26](https://github.com/user-attachments/assets/d0848741-be24-4bef-8874-cbb9454bf12d)
+
+- 模型设置
+
+![Snipaste_2024-12-17_21-55-33](https://github.com/user-attachments/assets/459d5b26-69d7-4a33-ad54-2cbae97544e3)
 
 ## 开发计划及进度
 
