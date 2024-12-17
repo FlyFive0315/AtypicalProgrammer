@@ -1,0 +1,9 @@
+numpy
+pandas
+pyarrow
+openai
+streamlit
+python-dotenv
+lark-oapi
+pyperclip
+flask

@@ -13,10 +13,13 @@ def init_session_state():
         st.session_state.messages = []
 
 def chat_with_internlm(messages):
+    print("messages:", messages)
     chat_rsp = internlm_client.chat.completions.create(
-        model="internlm2.5-latest",
+        model=st.session_state.model_settings["model"],
         messages=messages,
         stream=True,
+        temperature=st.session_state.model_settings["temperature"],
+        top_p=st.session_state.model_settings["top_p"],
     )
     
     return chat_rsp
