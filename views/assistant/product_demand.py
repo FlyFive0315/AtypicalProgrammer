@@ -95,7 +95,7 @@ st.markdown("""
             top: 0;
             right: 0;
             width: 438.75px;  /* 根据7:3的比例计算 */
-            height: 100vh;
+            height: 100%;
             padding: 20px;
             border-left: 1px solid #eee;
             overflow-y: auto;  /* 如果内容过多允许滚动 */
@@ -104,7 +104,7 @@ st.markdown("""
         [data-testid="stColumn"]:nth-of-type(1) {
             margin-right: 438.75px;  /* 为右侧固定区域留出空间 */
             padding: 40px 40px 80px 40px;
-            height: 100vh;
+            height: 100%;
             position: relative;
         }
         /* 聊天输入框容器样式 */
