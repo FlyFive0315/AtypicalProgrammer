@@ -147,6 +147,20 @@ with right_col:
     st.markdown('<p class="panel-title">📝 步骤</p>', unsafe_allow_html=True)
     # st.write(st.session_state.current_step)
     
+    # 在右侧面板添加重置按钮
+    if st.button("重新开始"):
+        st.session_state.generate = False
+        st.session_state.prompt_input = ''
+        st.session_state.messages = []
+        st.session_state.current_step = 1
+        st.session_state.output_document = ''
+        st.session_state.project_name = ''
+        st.session_state.project_background = ''
+        st.session_state.project_summary = ''
+        st.session_state.function_list = ''
+        st.session_state.other_part = ''
+        st.rerun()
+    
     steps = [
         "填写项目信息",
         "确认思路和方向",

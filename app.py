@@ -1,5 +1,5 @@
 import streamlit as st
-
+from utils import prompt
 # 设置页面配置必须是第一个 Streamlit 命令
 st.set_page_config(
     page_title="非典型程序员助手",
@@ -9,7 +9,7 @@ st.logo("assets/logo.png", size="large")
 
 if "templates" not in st.session_state:
     st.session_state.templates = {
-        '产品说明书': '',
+        '产品说明书': prompt.cpsms_output_template,
         '表设计': '',
         '测试用例': '',
         '用户手册': ''
